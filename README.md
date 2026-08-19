@@ -45,12 +45,13 @@ and how to reconcile their findings into a single actionable report.
 
 ## Live deployment
 
-- **Service URL:** `<PASTE YOUR CLOUD RUN URL HERE>`
-- **Health check:** `GET <SERVICE_URL>/` → `{"status": "ok", ...}`
-- **Run a cycle:** `POST <SERVICE_URL>/run-cycle` (see example below)
+- **Service URL:** `https://agrisentinel-orchestrator-730322841754.us-central1.run.app`
+- **Health check:** `GET https://agrisentinel-orchestrator-730322841754.us-central1.run.app/` → `{"status": "ok", "service": "AgriSentinel orchestrator"}`
+- **Run a cycle (HTTP API):** `POST https://agrisentinel-orchestrator-730322841754.us-central1.run.app/run-cycle` (see example below)
 
 ```bash
-curl -X POST <SERVICE_URL>/run-cycle \
+# Note: For PowerShell, escape quotes or use Invoke-RestMethod
+curl -X POST https://agrisentinel-orchestrator-730322841754.us-central1.run.app/run-cycle \
   -H "Content-Type: application/json" \
   -d '{"plot_id":"demo-1","intercropped":true,"cloud_cover_pct":85,
        "season_active":true,"carbon_program_enrolled":true,
@@ -62,9 +63,10 @@ curl -X POST <SERVICE_URL>/run-cycle \
 ![Cloud Run service dashboard](docs/screenshots/cloud-run-dashboard.png)
 ![Sample /run-cycle response](docs/screenshots/run-cycle-response.png)
 ![Structured audit logs](docs/screenshots/cloud-run-logs.png)
-
-*(Add your own screenshots to `docs/screenshots/` — see the Cloud Run
-walkthrough for exactly what to capture.)*
+![Health check in browser](docs/screenshots/health-check-browser.png)
+![GCP Console Resource Overview](docs/screenshots/gcp-overview.png)
+![Asynchronous Pub/Sub trigger in PowerShell](docs/screenshots/powershell-pubsub-test.png)
+![Cloud Run Pub/Sub execution logs](docs/screenshots/cloud-run-pubsub-logs.png)
 
 ## Repo layout
 
