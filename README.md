@@ -179,4 +179,4 @@ Contact: korvantaai@gmail.com
 
 ## License
 
-_(fill in: choose an OSI license, e.g. MIT/Apache-2.0)_
+[_MIT_](https://github.com/Arpanthebaap/agrisentinel/tree/main?tab=MIT-1-ov-file)
